@@ -9,3 +9,4 @@
 import Foundation
 
 let COUNTER_KEY = "counterKey"
+let SWITCH_STATE_KEY = "switchStateKey"

@@ -22,19 +22,40 @@ class MainVC: UIViewController {
         
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        storeDataSwitch.isOn = defaults.value(forKey: SWITCH_STATE_KEY) as? Bool ?? false
+        
+        initialValue = defaults.value(forKey: COUNTER_KEY) as? Int ?? 0
+        counterLBL.text = "\(initialValue)"
+    }
     
     @IBAction func increaseCounterBtnPressed(_ sender : Any) {
         initialValue += 1
         
         counterLBL.text = "\(initialValue)"
         
-        defaults.set(initialValue, forKey: COUNTER_KEY)
+        if storeDataSwitch.isOn {
+            defaults.set(initialValue, forKey: COUNTER_KEY)
+        }
         
-        print("counter in defaults",defaults.value(forKey: COUNTER_KEY) as Any)
         
     }
-
+    
+    
+    
+    @IBAction func storeDataSwitchChanged(_ sender: Any) {
+        
+        defaults.set(storeDataSwitch.isOn, forKey: SWITCH_STATE_KEY)
+        
+        if !storeDataSwitch.isOn {
+            defaults.setValue(0, forKey: COUNTER_KEY)
+            initialValue = 0
+            counterLBL.text = "\(initialValue)"
+        }
+    }
+    
 
 }
 

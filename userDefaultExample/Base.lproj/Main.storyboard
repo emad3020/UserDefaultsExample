@@ -62,6 +62,9 @@
                                     <constraint firstAttribute="height" constant="31" id="MaH-Lu-HDE"/>
                                 </constraints>
                                 <color key="onTintColor" red="0.1843137255" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="storeDataSwitchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ais-7v-CHn"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
