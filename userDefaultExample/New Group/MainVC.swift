@@ -29,6 +29,10 @@ class MainVC: UIViewController {
         
         counterLBL.text = "\(initialValue)"
         
+        defaults.set(initialValue, forKey: COUNTER_KEY)
+        
+        print("counter in defaults",defaults.value(forKey: COUNTER_KEY) as Any)
+        
     }
 
 
